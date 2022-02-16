@@ -4,6 +4,8 @@ import { useState } from "react";
 import axios from "axios";
 import {BASE_URL, API_KEY} from './constants/constants'
 import Header from "./components/header"
+import Media from "./components/media"
+import MediaText from "./components/mediatext"
 
 function App() {
   const [date, setDate] = useState("");
@@ -23,15 +25,18 @@ function App() {
         setMediaType(res.data.media_type);
         setCopyright(res.data.copyright);
         setExplain(res.data.explanation);
+        console.log(res)
       })
       .catch(err => console.error(err));
   }, [])
   
   return (
     <div className="App">
-      <h1>Today...IN SPACE!!!</h1>
+      <h1>NASA Today...IN SPACE!!!</h1>
       <Header date={date}/>
-      <link></link>
+      <Media mediaUrl={mediaUrl} mediaType={mediaType}/>
+      <MediaText title={title} copyright={copyright} explain={explain}/>
+      <a href="https://apod.nasa.gov/apod/archivepix.html">Check The Archives To See Your Birthday Astronomy Pics!</a>
     </div>
   );
 }
