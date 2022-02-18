@@ -14,7 +14,7 @@ const StyledApp = styled.div`
   background-color: ${props => props.theme.purple};
   display: flex;
   flex-direction: column;
-  justify-content:space-around;
+
   color: ${props => props.theme.black};
   }
 `
