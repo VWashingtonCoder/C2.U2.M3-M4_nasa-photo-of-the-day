@@ -7,6 +7,17 @@ import Header from "./components/header"
 import Videos from "./components/videos"
 import Images from "./components/images";
 import MediaText from "./components/mediatext"
+import styled from "styled-components";
+
+
+const StyledApp = styled.div`
+  background-color: ${props => props.theme.purple};
+  display: flex;
+  flex-direction: column;
+  justify-content:space-around;
+  color: ${props => props.theme.black};
+  }
+`
 
 function App() {
   const [date, setDate] = useState("");
@@ -30,13 +41,12 @@ function App() {
   }, [])
   
   return (
-    <div className="App">
-      <h1>NASA Today...IN SPACE!!!</h1>
+    <StyledApp className="App">
       <Header date={date}/>
       {mediaType === "video" ? <Videos/> : <Images/>}
       <MediaText title={title} copyright={copyright} explain={explain}/>
       <a href="https://apod.nasa.gov/apod/archivepix.html">Check The Archives To See Your Birthday Astronomy Pics!</a>
-    </div>
+    </StyledApp>
   );
 }
 
