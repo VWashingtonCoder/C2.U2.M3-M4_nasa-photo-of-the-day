@@ -8,6 +8,7 @@ import Videos from "./components/videos"
 import Images from "./components/images";
 import MediaText from "./components/mediatext"
 import styled from "styled-components";
+import { Button } from "reactstrap";
 
 
 const StyledApp = styled.div`
@@ -45,7 +46,7 @@ function App() {
       <Header date={date}/>
       {mediaType === "video" ? <Videos/> : <Images/>}
       <MediaText title={title} copyright={copyright} explain={explain}/>
-      <a href="https://apod.nasa.gov/apod/archivepix.html">Check The Archives To See Your Birthday Astronomy Pics!</a>
+      <Button active block color="primary" outline size="lg" href='https://apod.nasa.gov/apod/archivepix.html'>Check The Archives To See Your Birthday Astronomy Pics!</Button>
     </StyledApp>
   );
 }
